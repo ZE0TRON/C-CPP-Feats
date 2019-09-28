@@ -7,18 +7,32 @@
 class UseMemory{
     private:
     int *_arr;
+    int _size;
     public:
     UseMemory(int);
     ~UseMemory();
+    void set(int,int);
+    int get(int);
 };
 
 UseMemory::UseMemory(int size){
     _arr = (int *) malloc(sizeof(int) * size);
+    _size = size;
     std::cout<<"Memory allocated\n";
 }
+
 UseMemory::~UseMemory(){
     delete _arr;
     std::cout<<"Memory deallocated\n";
+}
+
+void UseMemory::set(int index, int value) {
+    if(index<_size-1)
+        _arr[index] = value;    
+}
+
+int UseMemory::get(int index) {
+    return index<_size-1 ? _arr[index] : 0;
 }
 
 void fun(){
@@ -35,9 +49,11 @@ void fun3(){
     UseMemory * um;
 }
 
-void fun4() {
+UseMemory * fun4() {
     UseMemory * um;
     um = new UseMemory(110);
+    um->set(1,10);
+    return um;
 }
 
 void fun5(){
@@ -55,7 +71,8 @@ int main () {
     std::cout<<"Fun 3 : \n";
     fun3();
     std::cout<<"Fun 4 : \n";
-    fun4();
+    UseMemory * um = fun4();
+    std::cout<<"Fun 4 object value :"<<um->get(1)<<std::endl;
     std::cout<<"Fun 5 : \n";
     fun5();
     return EXIT_SUCCESS;
