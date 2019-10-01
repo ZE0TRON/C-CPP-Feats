@@ -2,6 +2,9 @@
 #include <vector>
 using namespace std;
 
+// References must be used in copy constructors and operator overloading
+
+
 struct S{
     string a;
     int b;

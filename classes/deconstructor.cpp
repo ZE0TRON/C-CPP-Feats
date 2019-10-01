@@ -61,6 +61,9 @@ void fun5(){
     um = new UseMemory(100);
     delete um;
 }
+void fun6(){
+    UseMemory * um = new UseMemory(100);
+}
 
 int main () {
 
@@ -75,5 +78,7 @@ int main () {
     std::cout<<"Fun 4 object value :"<<um->get(1)<<std::endl;
     std::cout<<"Fun 5 : \n";
     fun5();
+    std::cout<<"Fun 6 : \n";
+    fun6();
     return EXIT_SUCCESS;
 }
