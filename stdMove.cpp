@@ -3,6 +3,16 @@
 // -- to convert its argument into an r-value. We can pass an l-value to std::move,
 // and it will return an r-value reference. std::move is defined in the utility header.
 
+/*
+Where else is std::move useful?
+
+std::move can also be useful when sorting an array of elements.
+Many sorting algorithms (such as selection sort and bubble sort) work by swapping pairs of elements.
+Before we’ve had to resort to copy-semantics to do the swapping.
+Now we can use move semantics, which is more efficient.
+
+It can also be useful if we want to move the contents managed by one smart pointer to another.
+*/
 #include <iostream>
 #include <string>
 #include <utility>
